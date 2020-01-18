@@ -7,7 +7,6 @@ CREATE TABLE drink_categories (
   PRIMARY KEY(cat_id)
 );
 
-
 CREATE TABLE Cocktail (
     cocktail_id int AUTO_INCREMENT NOT NULL,
     drink varchar(45) NOT NULL,
