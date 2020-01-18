@@ -19,8 +19,6 @@ if (config.use_env_variable) {
   );
 }
 
-// TESTING IN INDEX
-
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (
