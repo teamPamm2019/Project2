@@ -7,7 +7,6 @@ CREATE TABLE drink_categories (
   PRIMARY KEY(cat_id)
 );
 
-
 CREATE TABLE Cocktail (
     cocktail_id int AUTO_INCREMENT NOT NULL,
     drink varchar(45) NOT NULL,
@@ -17,9 +16,18 @@ CREATE TABLE Cocktail (
 );
 
 CREATE TABLE method (
-    method_id int AUTO_INCREMENT NOT NULL,
-    step varchar(45) NOT NULL,
-    drink_id int,
-    PRIMARY KEY (method_id),
-    FOREIGN KEY (drink_id) REFERENCES Cocktail(cocktail_id)
+  method_id int AUTO_INCREMENT NOT NULL,
+  step varchar(45) NOT NULL,
+  drink_id int,
+  PRIMARY KEY (method_id),
+  FOREIGN KEY (drink_id) REFERENCES Cocktail(cocktail_id)
+);
+
+-- Glass table for later
+CREATE TABLE glass (
+  glass_id INT AUTO_INCREMENT NOT NULL,
+  glass varchar(45) NOT NULL,
+  drink_id int,
+  PRIMARY KEY (glass_id),
+  FOREIGN KEY (drink_id) REFERENCES Cocktail(cocktail_id)
 );
