@@ -9,9 +9,17 @@ CREATE TABLE drink_categories (
 
 
 CREATE TABLE Cocktail (
-    cocktail_id int NOT NULL,
+    cocktail_id int AUTO_INCREMENT NOT NULL,
     drink varchar(45) NOT NULL,
     cat_id int,
     PRIMARY KEY (cocktail_id),
     FOREIGN KEY (cat_id) REFERENCES drink_categories(cat_id)
+);
+
+CREATE TABLE ingredients (
+    ingredients_id int AUTO_INCREMENT NOT NULL,
+    drink varchar(45) NOT NULL,
+    cocktail_id int,
+    PRIMARY KEY (ingredients_id),
+    FOREIGN KEY (cocktail_id) REFERENCES drink_categories(cat_id)
 );
