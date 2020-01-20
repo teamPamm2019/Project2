@@ -39,4 +39,4 @@ INSERT INTO cocktail (drink,cat_id) VALUES ("daquiri",4);
 
 INSERT INTO cocktail (drink,cat_id) VALUES ("raspberry rum mule",4);
 
-INSERT INTO cocktail (drink,cat_id) VALUES ("classic mojito",4)
+INSERT INTO cocktail (drink,cat_id) VALUES ("classic mojito",4);
