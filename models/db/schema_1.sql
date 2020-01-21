@@ -1,5 +1,23 @@
-CREATE DATABASE Speakeasy;
-USE Speakeasy;
+
+USE oz6hzuqslbm4klxz;
+
+CREATE TABLE ingredients (
+  ingredients_id int AUTO_INCREMENT NOT NULL,
+  drink varchar(45) NOT NULL,
+  cocktail_id int,
+  PRIMARY KEY (ingredients_id),
+  FOREIGN KEY (cocktail_id) REFERENCES Cocktail(cocktail_id)
+);
+
+
+CREATE TABLE images (
+  images_id int AUTO_INCREMENT NOT NULL,
+  image varchar(45) NOT NULL,
+  cocktail_id int,
+  PRIMARY KEY (images_id),
+  FOREIGN KEY (cocktail_id) REFERENCES Cocktail(cocktail_id)
+);
+
 
 CREATE TABLE drink_categories (
   cat_id int AUTO_INCREMENT,
@@ -17,15 +35,15 @@ CREATE TABLE Cocktail (
 
 CREATE TABLE ingredients (
   ingredients_id int AUTO_INCREMENT NOT NULL,
-  drink varchar(45) NOT NULL,
+  drink longtext NOT NULL,
   cocktail_id int,
   PRIMARY KEY (ingredients_id),
-  FOREIGN KEY (cocktail_id) REFERENCES cocktail(cocktail_id)
+  FOREIGN KEY (cocktail_id) REFERENCES Cocktail(cocktail_id)
 );
 
 CREATE TABLE method (
   method_id int AUTO_INCREMENT NOT NULL,
-  step varchar(45) NOT NULL,
+  step longtext NOT NULL,
   cocktail_id int,
   PRIMARY KEY (method_id),
   FOREIGN KEY (cocktail_id) REFERENCES Cocktail(cocktail_id)
@@ -39,6 +57,8 @@ CREATE TABLE glass (
   PRIMARY KEY (glass_id),
   FOREIGN KEY (drink_id) REFERENCES Cocktail(cocktail_id)
 );
+
+
 
 INSERT INTO drink_categories (category) VALUES ("whiskey");
 INSERT INTO drink_categories (category)  VALUES ("tequila");
