@@ -10,9 +10,9 @@ db = require('./config/config.js')
 
 
 // Test DB
-db.authenticate()
-    .then(() => console.log("Database connected...."))
-    .catch(err => console.log("Error: " + err))
+// db.authenticate()
+//     .then(() => console.log("Database connected...."))
+//     .catch(err => console.log("Error: " + err))
 
 const app = express();
 
