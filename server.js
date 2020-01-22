@@ -1,47 +1,36 @@
-require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const bodyParser = require("body-parser");
+const path = require("path");
 
-var db = require("./models");
+const Sequelize = require("sequelize");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+// // Database
+db = require('./config/config.js')
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+// Test DB
+db.authenticate()
+    .then(() => console.log("Database connected...."))
+    .catch(err => console.log("Error: " + err))
+
+const app = express();
+
+//Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+//Body Parser
+app.use(bodyParser.urlencoded({ extended: false }));
 
-var syncOptions = { force: false };
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
+//Set static folder
+app.use(express.static(path.join(__dirname,"public")));
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
-});
+//Index route
+app.get("/", (req,res) => res.render("index"));
 
-module.exports = app;
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`server started on port ${PORT}`));

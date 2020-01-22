@@ -37,7 +37,7 @@
         <div class="grid-example col  s5">
             <h2>Cocktail List</h2>
             <ul>
-                {{#each Cocktail}
+                {{#each Cocktail}}
                     <li>
                         <button class="btn-flat transparent">
                             <div class="chip">
@@ -53,7 +53,7 @@
     <div class="grid-example col  s2"></div>
     <div class="grid-example col  s5">
         <h2>Add a drink</h2>
-        <form class="col s12">
+        <form class="col s12" action="/" method="POST">
             <div class="row">
                 <div class="input-field col s12">
                     <input value="" id="cat_name" type="text">
@@ -71,8 +71,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input value="" id="drinkimage_name" type="text">
-                    <label class="active" for="drinkimage_name"><span
-                            style="font-weight: bold;color:dark-grey;">Cocktail's Image</span></label>
+                    <label class="active" for="drinkimage_name">Cocktail's Image</label>
                 </div>
             </div>
             <div class="row">
