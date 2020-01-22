@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Speakeasy Bar</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="public/styles/styles.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        var ageVerification;
+
+        if (confirm("Are you over 21 years old?") == true) {
+            ageVerification = "Welcome to the Speakeasy!";
+        } else {
+            ageVerification = "You'll have to wait your turn!";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar-fixed active">
+        <nav class="brown accent-4">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo center" style="font-family: cursive;">The SPEAKEASY</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html" style="font-family: cursive">The Hooch</a></li>
+                    <li><a href="badges.html" style="font-family: cursive">The Bootleggers</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <br>
+        <div class="col lg 12 center" id="indexImage">
+            <img src="http://thelasocialites.com/wp-content/uploads/2015/06/IMG_1920_1_2.jpg" alt=""
+                class="responsive-img" alt="" width="600" height="600" style="border-style: solid; border-color: burlywood; border-width: thick;">
+        </div>
+
+        <div style="text-align: center;">
+            <div style="color: whitesmoke; font-size: 28px; font-family: cursive;">Pick Your Poison!</div>
+            <button class="button" id="vodkaBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
+                <img src="https://p7.hiclipart.com/preview/146/365/173/cocktail-garnish-vodka-martini-cocktail-thumbnail.jpg"
+                    width="100" height="100" style="border-style: solid; border-color: black;"><br>Vodka
+            </button>
+
+            <button class="button" id="tequilaBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
+                <img src="https://i7.pngguru.com/preview/256/741/256/cocktail-garnish-margarita-daiquiri-martini-cocktail-thumbnail.jpg"
+                    width="100" height="100" style="border-style: solid; border-color: black"><br>Tequila
+            </button>
+
+            <button class="button" id="whiskeyBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
+                <img src="https://i7.pngguru.com/preview/194/66/425/whiskey-sour-cocktail-harvey-wallbanger-juice-cocktail-thumbnail.jpg"
+                    width="100" height="100" style="border-style: solid; border-color: black"><br>Whiskey
+            </button>
+
+            <button class="button" id="rumBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
+                <img src="https://p7.hiclipart.com/preview/377/748/837/cocktail-gin-tequila-sunrise-sour-sea-breeze-cocktails-thumbnail.jpg"
+                    width="100" height="100" style="border-style: solid; border-color: black;"><br>Rum
+            </button>
+        </div>
+        <br>
+    </div>
+
+</body>
+
+</html>
