@@ -16,6 +16,12 @@ const sequelize = new Sequelize("SpeakEZ",
     },
   });
 
+
+// Test DB
+sequelize.authenticate()
+  .then(() => console.log("Database connected...."))
+  .catch(err => console.log("Error: " + err))
+
 // Connect all the models/tables in the database to a db object,
 //so everything is accessible via one object
 const db = {};
