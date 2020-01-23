@@ -1,0 +1,10 @@
+master table: liquors
+
+table: drinks. with glass type. foreign key linked to the liquor
+
+table: recipe steps. foreign key linked to drinks.
+
+table: ingredients. foreign key linked to drinks.
+
+
+

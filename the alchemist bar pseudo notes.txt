@@ -1,0 +1,46 @@
+Project Idea: The Alchemist Bar
+
+- API: Collect Recipes
+- Mysql Database: with the following tables: list of drinks and ingredients, instructions
+- Sequelize
+- Handlebars
+- node 
+- heroku
+- materialize for css
+- logins/authentication/save data based on each user
+
+
+Pseudocode
+
+menu category another imge with drink filling up and ingredients next to it
+user process
+- Go to search box
+- search by drink, different options provided and the user can select a drink
+category top shelf and well
+
+10 drinks each
+
+cocktail
+
+categorize by alcohol
+
+1. tequila (table)
+Margaritas - recipes for variations
+2. Rum (table)
+cuba libre - receipe for variations
+3. Vodka (table)
+vodka soda 
+martini - recipe for variations
+4. whiskey (table)
+ginger ale -recipe for variations
+
+create database 
+table
+
+------
+
+Table Columns
+ID
+Drink name
+ingredients
+instructions
