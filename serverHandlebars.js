@@ -10,7 +10,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('example');
+    res.render('index');
 });
 
 
