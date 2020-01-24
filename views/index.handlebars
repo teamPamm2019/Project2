@@ -1,43 +1,97 @@
-<div class="navbar-fixed active">
-    <nav class="brown accent-4">
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo center" style="font-family: cursive;">The SPEAKEASY</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html" style="font-family: cursive">The Hooch</a></li>
-                <li><a href="badges.html" style="font-family: cursive">The Bootleggers</a></li>
-            </ul>
+<div class="row">
+    <div class="col s12">
+        <div class="card transparent"
+            style="background-image: url('https://as1.ftcdn.net/jpg/02/29/35/48/500_F_229354874_JGNkLO3K9ElnPfEgij3OhXz7mz4093UJ.jpg');">
+            <div class="card-content white-text">
+                <span class="card-title">
+                    <h1 style="text-align: center;color:black">VIRTUAL EASYSPEAK BAR</h1>
+                </span>
+                <p>
+                    <h5 style="text-align: center;color:black">Please select a drink from the menu<br>Or you can add
+                        your own custom
+                        drink to the menu</h5>
+                </p>
+            </div>
         </div>
-    </nav>
+    </div>
 </div>
 
+
+
 <div class="container">
-<br>
-    <div style="text-align: center;" id="indexImage">
-        <img src="http://thelasocialites.com/wp-content/uploads/2015/06/IMG_1920_1_2.jpg" alt=""
-            class="responsive-img" alt="" width="600" height="600" style="border-style: solid; border-color: burlywood; border-width: thick;">
+    <div class="row">
+        <div class="grid-example col  s4"></div>
+        <div class="grid-example col  s4">
+            <form action="#">
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span style="font-weight: bold;font-size: 20px;color:black">You're 18 or older</span>
+                    </label>
+                </p>
+            </form>
+        </div>
+        <div class="grid-example col  s4"></div>
     </div>
-
-    <div style="text-align: center;">
-        <div style="color: black; font-size: 28px; font-family: cursive;">Pick Your Poison!</div>
-        <button class="button" id="vodkaBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://p7.hiclipart.com/preview/146/365/173/cocktail-garnish-vodka-martini-cocktail-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black;"><br>Vodka
-        </button>
-
-        <button class="button" id="tequilaBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://i7.pngguru.com/preview/256/741/256/cocktail-garnish-margarita-daiquiri-martini-cocktail-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black"><br>Tequila
-        </button>
-
-        <button class="button" id="whiskeyBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://i7.pngguru.com/preview/194/66/425/whiskey-sour-cocktail-harvey-wallbanger-juice-cocktail-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black"><br>Whiskey
-        </button>
-
-        <button class="button" id="rumBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://p7.hiclipart.com/preview/377/748/837/cocktail-gin-tequila-sunrise-sour-sea-breeze-cocktails-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black;"><br>Rum
-        </button>
+    <div class="row">
+        <div class="grid-example col  s5">
+            <h2>Cocktail List</h2>
+            <ul>
+                {{#each cocktail}}
+                <li>
+                    <button class="btn-flat transparent"><a href="/results">
+                        <div class="chip">
+                            <img
+                                src={{this.dataValues.image}}>
+                            {{this.dataValues.drink}}
+                        </div>
+                    </a></button>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="grid-example col  s2"></div>
+        <div class="grid-example col  s5">
+            <h2>Add a drink</h2>
+            <form class="col s12" action="/index" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="category" id="cat_name" type="text" value={{dataValues.category}}>
+                        <label class="active" for="cat_name"><span
+                                style="font-weight: bold;color:dark-grey;">Category</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="drink" id="drink_name" type="text" value={{cocktail.dataValues.drink}}>
+                        <label class="active" for="drink_name"><span
+                                style="font-weight: bold;color:dark-grey;">Cocktail</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="image" id="drinkimage_name" type="text" value={{cocktail.dataValues.image}}>
+                        <label class="active" for="drinkimage_name">Cocktail's Image</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="ingredients" id="textarea1" class="materialize-textarea"
+                            value={{dataValues.ingredients}}></textarea>
+                        <label for="textarea1"><span
+                                style="font-weight: bold;color:dark-grey;">Ingredients</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea name="method" id="textarea2" class="materialize-textarea" value={{dataValues.method}}></textarea>
+                        <label for="textarea2"><span style="font-weight: bold;color:dark-grey;">Method</span></label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn-blue-grey lighten-4" type="submit" name="submit">Submit
+                    <i class="mdi-content-send right"></i>
+                </button>
+            </form>
+        </div>
     </div>
-    <br>
 </div>

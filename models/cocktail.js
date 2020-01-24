@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Cock = sequelize.define("cocktails", {
-        cocktails_id: {
+    const Wow = sequelize.define("cocktails", {
+        id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true
@@ -9,7 +9,10 @@ module.exports = (sequelize, Sequelize) => {
         drink: {
             type: Sequelize.STRING
         },
-        cat_id: {
+        images: {
+            type: Sequelize.TEXT
+        },
+        drinkcategories_id: {
             type: Sequelize.INTEGER,
             allowNull: false
         },
@@ -22,5 +25,5 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true
         }
     });
-    return Cock
+    return Wow
 };

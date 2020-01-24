@@ -1,8 +1,7 @@
 
-
 module.exports = (sequelize, Sequelize) => {
     const Cat = sequelize.define("drinkcategories", {
-        cat_id: {
+        drinkcategories_id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true

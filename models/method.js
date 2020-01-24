@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, Sequelize) => {
     const Met = sequelize.define("method", {
         id: {

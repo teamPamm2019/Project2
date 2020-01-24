@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, Sequelize) => {
     const Ing = sequelize.define("ingredients", {
         id: {

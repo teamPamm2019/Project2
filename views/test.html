@@ -18,6 +18,9 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- To be able to use icons from materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 </head>
 
@@ -38,6 +41,16 @@
                     </p>
                 </div>
             </div>
+            <!-- <nav>
+                <div class="nav-wrapper" style="background-image: url('https://as1.ftcdn.net/jpg/02/29/35/48/500_F_229354874_JGNkLO3K9ElnPfEgij3OhXz7mz4093UJ.jpg');">
+                    <a href="/" class="brand-logo"><i class="material-icons">local_bar</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a  href="/"><i class="material-icons" style="color: black;">home</i></a></li>
+                        <li><a class="btn-floating btn-large waves-effect waves-light red" href="/index"><i class="material-icons">add</i></a></li>
+                        <li><a class="btn-floating btn-large waves-effect waves-light red" href="/index/results"><i class="material-icons">add</i></a></li>
+                    </ul>
+                </div>
+            </nav> -->
         </div>
     </div>
 
@@ -59,18 +72,17 @@
             <div class="grid-example col  s4"></div>
         </div>
         <div class="row">
-            <div class="grid-example col  s5">
+            <div class="grid-example col  s5" id="btn77">
                 <h2>Cocktail List</h2>
                 <ul>
                     <li>
-                        <button class="btn-flat transparent" id="btn1">
-                            <!-- <p>manhattan</p>--->
-                            <div class="chip">
-                                <img src="https://www.thespruceeats.com/thmb/KHRNdiepgPxkjQAQdbWTTC35-S0=/3158x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/classic-manhattan-cocktail-759321-step-05-22101d2cc6d44691a9200d66e88a97a9.jpg"
-                                    alt="Contact Person">
-                                manhattan
-                            </div>
-                        </button>
+                        <button class="btn-flat transparent" id="btn1"><a href="/results">
+                                <!-- <p>manhattan</p>--->
+                                <div class="chip">
+                                    <img src="../db/images/MintJulep.png">
+                                    manhattan
+                                </div>
+                            </a></button>
                     </li>
                     <!--{{/each}}-->
                 </ul>
@@ -102,7 +114,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea" value={{ingredients.ingredients}}></textarea>
+                            <textarea id="textarea1" class="materialize-textarea"
+                                value={{ingredients.ingredients}}></textarea>
                             <label for="textarea1"><span
                                     style="font-weight: bold;color:dark-grey;">Ingredients</span></label>
                         </div>
