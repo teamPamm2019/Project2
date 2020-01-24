@@ -15,3 +15,7 @@ module.exports = (app, db) => {
   });
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 830f917593a28b8aa70b5573d86557aa62bbce1d
