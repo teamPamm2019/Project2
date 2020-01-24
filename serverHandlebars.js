@@ -10,9 +10,10 @@ app.set("view engine", "handlebars");
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('layouts/main');
 });
 
+app.use(express.static("public"));
 
 app.listen(8080, () => {
   console.log('Server is listening on port 🌎', 8080);
