@@ -10,7 +10,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('layouts/main');
+    res.render('404');
 });
 
 app.use(express.static("public"));
