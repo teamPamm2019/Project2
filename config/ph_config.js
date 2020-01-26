@@ -32,19 +32,20 @@ db.sequelize = sequelize;
 //Models/tables
 db.category = require("../models/category.js")(sequelize, Sequelize);
 db.cocktail = require("../models/cocktail.js")(sequelize, Sequelize);
-db.images = require("../models/images.js")(sequelize, Sequelize);
+// db.images = require("../db/images.js/index.js")(sequelize, Sequelize);
 db.ingredients = require("../models/ingredients.js")(sequelize, Sequelize);
 db.method = require("../models/method.js")(sequelize, Sequelize);
 
 //Relations
-db.images.belongsTo(db.cocktail,{ foreignKey: "cocktails_id" });
-db.cocktail.hasMany(db.images,{ foreignKey: "cocktails_id" });
-db.ingredients.belongsTo(db.cocktail,{ foreignKey: "cocktails_id" });
-db.cocktail.hasMany(db.ingredients,{ foreignKey: "cocktails_id" });
-db.method.belongsTo(db.cocktail,{ foreignKey: "cocktails_id" });
-db.cocktail.hasMany(db.method,{ foreignKey: "cocktails_id" });
-db.cocktail.belongsTo(db.category,{ foreignKey: "drinkcategories_id" });
-db.category.hasMany(db.cocktail,{ foreignKey: "drinkcategories_id" });
+// db.images.belongsTo(db.cocktail);
+// db.cocktail.hasMany(db.images);
+db.ingredients.belongsTo(db.cocktail);
+db.cocktail.hasMany(db.ingredients, {as: 'listofingredients'});
+
+db.cocktail.hasMany(db.method)
+db.cocktail.belongsTo(db.category);
+db.method.belongsTo(db.cocktail);
+db.category.hasMany(db.cocktail);
 
 module.exports = db;
 
