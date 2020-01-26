@@ -1,23 +1,81 @@
- 
+<br>
 <br>
 <div class="container">
     <div style="text-align: center">
         <img src="https://images.squarespace-cdn.com/content/v1/5c9b9981af468385e47c0853/1555704821019-POZMD5XYRZ2NBADLFKG5/ke17ZwdGBToddI8pDm48kLmUbQbtDGsZ8YTTasGILul7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0lqfkVpRp1g_2L-WsTQRP4LE6B0BTbA_B4hx17Wb5wfjT9mR3gzq1SMR4UIbU98M4g/SpeakeasyBar.jpg" alt=""
-            class="responsive-img" alt="" width="600" height="600" style="border-style: solid; border-color: burlywood; border-width: thick;">
+            class="responsive-img" alt="" width="700" height="700" style="border-style: solid; border-color: burlywood; border-width: thick;">
     </div>
     <br>
 
-    <div>
+    <div class="container" style="border-style: solid; border-color: burlywood; background-color:antiquewhite">
         <div class="row">
-            <div class="col s6 offset-s3">
-                <div class="card" style="background-color: burlywood">
-                    <p style="font-weight: bolder; text-align: center">DRINK CATEGORY HERE</p>
-                </div>
+            <div class="grid-example col  s5">
+                <h2 style="font-family: cursive; text-align: center;">Cocktail List</h2>
+                <ul>
+                    {{#each cocktail}}
+                    <li>
+                        <button class="btn-flat transparent"><a href="/results">
+                            <div class="chip">
+                                <img
+                                    src={{this.dataValues.image}}>
+                                {{this.dataValues.drink}}
+                            </div>
+                        </a></button>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="grid-example col  s2"></div>
+            <div class="grid-example col  s5">
+                <h2 style="font-family: cursive; text-align: center;">Add One to the List!</h2>
+                <form class="col s12" action="/index" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="category" id="cat_name" type="text" value={{dataValues.category}}>
+                            <label class="active" for="cat_name"><span
+                                    style="font-weight: bold;color:dark-grey; font-family: cursive;">Category</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="drink" id="drink_name" type="text" value={{cocktail.dataValues.drink}}>
+                            <label class="active" for="drink_name"><span
+                                    style="font-weight: bold;color:dark-grey; font-family: cursive;">Cocktail</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="image" id="drinkimage_name" type="text" value={{cocktail.dataValues.image}}>
+                            <label class="active" for="drinkimage_name" style="font-weight: bold;color:dark-grey; font-family: cursive;">Cocktail's Image</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="ingredients" id="textarea1" class="materialize-textarea"
+                                value={{dataValues.ingredients}}></textarea>
+                            <label for="textarea1"><span
+                                    style="font-weight: bold;color:dark-grey; font-family: cursive;">Ingredients</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="method" id="textarea2" class="materialize-textarea" value={{dataValues.method}}></textarea>
+                            <label for="textarea2"><span style="font-weight: bold;color:dark-grey; font-family: cursive;">Method</span></label>
+                        </div>
+                    </div>
+                    <button class="waves-effect waves-light btn-blue-grey lighten-4" type="submit" name="submit" style="font-family: cursive;">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-
+    </div>
+<br>
+<br>
 </div>
+
+<script type="text/javascript"></script>
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

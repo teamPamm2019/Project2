@@ -20,6 +20,7 @@ INSERT INTO Cocktail (drink,cat_id) VALUES ("Tequila Sour",2);
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Tequila Blood Orange",2);
 
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Tequila Corpse Reviver",2);
+
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Absolut Cosmopolitan",3);
 
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Finlandia Vodka Wild Berritini",3);
@@ -29,6 +30,7 @@ INSERT INTO Cocktail (drink,cat_id) VALUES ("Absolut Elyx Martini",3);
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Ketel One Vodka Martini",3);
 
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Vodka Soda",3);
+
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Pina Colada",4);
 
 INSERT INTO Cocktail (drink,cat_id) VALUES ("Dark n Stormy",4);
