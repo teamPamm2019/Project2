@@ -9,10 +9,6 @@ module.exports = (sequelize, Sequelize) => {
         images: {
             type: Sequelize.STRING
         },
-        cocktails_id: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        },
         createdAt: {
             type: Sequelize.DATE,
             allowNull: true

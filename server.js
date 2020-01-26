@@ -2,7 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const path = require("path");
-router = require('./router/index');
+const router = require('./router/index');
 
 const Sequelize = require("sequelize");
 
@@ -21,15 +21,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Set static folder
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"./db/images")));
+
 
 // require("./router/routes/routes.js")(app);
 
 router(app, db);
 
 //Index route
-app.get("/", (req,res) => res.render("index",({ defaultLayout: "main" })));
-app.get("/results", (req,res) => res.render("results",({ defaultLayout: "main" })));
+app.get("/index", (req,res) => res.render("index",({ defaultLayout: "main" })));
+app.get("/", (req,res) => res.render("results",({ defaultLayout: "main" })));
 // app.get("/results", (req,res) => res.render("results",({ defaultLayout: "main" })));
 
 

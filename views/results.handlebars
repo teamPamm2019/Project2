@@ -6,25 +6,65 @@
                 <span class="card-title">
                     <h1 style="text-align: center;color:black">VIRTUAL EASYSPEAK BAR</h1>
                 </span>
+                <p>
+                    <h5 style="text-align: center;color:black">Please select a drink from the menu<br>Or you can add
+                        your own custom
+                        drink to the menu</h5>
+                </p>
             </div>
         </div>
     </div>
 </div>
 
 
-{{!-- <div class="container">
+
+<div class="container">
+
     <div class="row">
-        <div class="grid-example col  s5">
-            <h2>{{}}</h2>
-            <img src="{{}}">
-        </div>
-        <div class="grid-example col  s2"></div>
-        <div class="grid-example col  s5">
-            <h5>Ingredients:</h5>
-            <p>{{}}</p>
-            </br>
-            <h5>Method:</h5>
-            <p>{{}}</p>
-        </div>
+        <h2>Add a drink</h2>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="" id="cat_name" type="text" value={{category.category}}>
+                    <label class="active" for="cat_name"><span
+                            style="font-weight: bold;color:dark-grey;">Category</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="" id="drink_name" type="text" value={{cocktail.drink}}>
+                    <label class="active" for="drink_name"><span
+                            style="font-weight: bold;color:dark-grey;">Cocktail</span></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="" id="drinkimage_name" type="text" value={{image.image}}>
+                    <label class="active" for="drinkimage_name"><span
+                            style="font-weight: bold;color:dark-grey;">Cocktail's Image</span></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" value={{ingredients.ingredients}}></textarea>
+                    <label for="textarea1"><span style="font-weight: bold;color:dark-grey;">Ingredients</span></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea2" class="materialize-textarea" value={{method.method}}></textarea>
+                    <label for="textarea2"><span style="font-weight: bold;color:dark-grey;">Method</span></label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn-blue-grey lighten-4" type="submit" name="submit">Submit
+                <i class="mdi-content-send right"></i>
+            </button>
+        </form>
     </div>
-</div> --}}
+</div>
+
+<script type="text/javascript">
+
+
+
+</script>

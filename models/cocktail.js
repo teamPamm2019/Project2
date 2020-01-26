@@ -9,13 +9,6 @@ module.exports = (sequelize, Sequelize) => {
         drink: {
             type: Sequelize.STRING
         },
-        images: {
-            type: Sequelize.TEXT
-        },
-        drinkcategories_id: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        },
         createdAt: {
             type: Sequelize.DATE,
             allowNull: true

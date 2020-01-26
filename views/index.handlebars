@@ -22,14 +22,6 @@
     <div class="row">
         <div class="grid-example col  s4"></div>
         <div class="grid-example col  s4">
-            <form action="#">
-                <p>
-                    <label>
-                        <input type="checkbox" />
-                        <span style="font-weight: bold;font-size: 20px;color:black">You're 18 or older</span>
-                    </label>
-                </p>
-            </form>
         </div>
         <div class="grid-example col  s4"></div>
     </div>
@@ -39,59 +31,65 @@
             <ul>
                 {{#each cocktail}}
                 <li>
-                    <button class="btn-flat transparent"><a href="/results">
+                    <button class="btn-flat transparent btn1" id="{{this.dataValues.id}}">
                         <div class="chip">
-                            <img
-                                src={{this.dataValues.image}}>
                             {{this.dataValues.drink}}
                         </div>
-                    </a></button>
+                    </button>
                 </li>
                 {{/each}}
             </ul>
         </div>
         <div class="grid-example col  s2"></div>
         <div class="grid-example col  s5">
-            <h2>Add a drink</h2>
-            <form class="col s12" action="/index" method="POST">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="category" id="cat_name" type="text" value={{dataValues.category}}>
-                        <label class="active" for="cat_name"><span
-                                style="font-weight: bold;color:dark-grey;">Category</span></label>
-                    </div>
+            <h2>Results</h2>
+            <div class="row">
+                <h4>Cocktail's Sour:</h4>
+                </br>
+                <img class="circle responsive-img" src="" id="addImg">
+            </div>
+            </br>
+            <div class="row">
+                <h5>Ingredients:</h5>
+                <div class="card-panel">
+                    <p id="addIngred"></p>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="drink" id="drink_name" type="text" value={{cocktail.dataValues.drink}}>
-                        <label class="active" for="drink_name"><span
-                                style="font-weight: bold;color:dark-grey;">Cocktail</span></label>
-                    </div>
+            </div>
+            <div class="row">
+                <h5>method:</h5>
+                <div class="card-panel">
+                    <p id="addMeth"></p>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="image" id="drinkimage_name" type="text" value={{cocktail.dataValues.image}}>
-                        <label class="active" for="drinkimage_name">Cocktail's Image</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea name="ingredients" id="textarea1" class="materialize-textarea"
-                            value={{dataValues.ingredients}}></textarea>
-                        <label for="textarea1"><span
-                                style="font-weight: bold;color:dark-grey;">Ingredients</span></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea name="method" id="textarea2" class="materialize-textarea" value={{dataValues.method}}></textarea>
-                        <label for="textarea2"><span style="font-weight: bold;color:dark-grey;">Method</span></label>
-                    </div>
-                </div>
-                <button class="waves-effect waves-light btn-blue-grey lighten-4" type="submit" name="submit">Submit
-                    <i class="mdi-content-send right"></i>
-                </button>
-            </form>
+            </div>
+
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $(".btn1").on("click", function () {
+        var id1 = $(this).attr("id");
+        alert(id1);
+        exports.list = (req, res) => {
+            alert("we have activated userdisplay.js\n");
+            db.query("SELECT images FROM imagesdrinks INNER JOIN cocktails ON imagesdrinks.cocktails_id = cocktails.id WHERE imagesdrinks.id= 1", (error, results) => {
+                console.log('we did a query');
+                if (error) {
+                    console.log("Error: ", error);
+                    res.send({
+                        "code": 400,
+                        "failed": "Error occurred"
+                    });
+                } else {
+                    console.log("Results: ", results);
+                    res.render('/index', { data: results });
+                }
+            });
+        }
+    });
+
+
+
+
+</script>

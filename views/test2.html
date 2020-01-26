@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- To be able to use icons from materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card transparent"
+                style="background-image: url('https://as1.ftcdn.net/jpg/02/29/35/48/500_F_229354874_JGNkLO3K9ElnPfEgij3OhXz7mz4093UJ.jpg');">
+                <div class="card-content white-text">
+                    <span class="card-title">
+                        <h1 style="text-align: center;color:black">VIRTUAL EASYSPEAK BAR</h1>
+                    </span>
+                    <p>
+                        <h5 style="text-align: center;color:black">Please select a drink from the menu<br>Or you can add
+                            your own custom
+                            drink to the menu</h5>
+                    </p>
+                </div>
+            </div>
+            <!-- <nav>
+                <div class="nav-wrapper" style="background-image: url('https://as1.ftcdn.net/jpg/02/29/35/48/500_F_229354874_JGNkLO3K9ElnPfEgij3OhXz7mz4093UJ.jpg');">
+                    <a href="/" class="brand-logo"><i class="material-icons">local_bar</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a  href="/"><i class="material-icons" style="color: black;">home</i></a></li>
+                        <li><a class="btn-floating btn-large waves-effect waves-light red" href="/index"><i class="material-icons">add</i></a></li>
+                        <li><a class="btn-floating btn-large waves-effect waves-light red" href="/index/results"><i class="material-icons">add</i></a></li>
+                    </ul>
+                </div>
+            </nav> -->
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="grid-example col  s4"></div>
+            <div class="grid-example col  s4">
+                <form action="#">
+                    <p>
+                        <label>
+                            <input type="checkbox" />
+                            <span style="font-weight: bold;font-size: 20px;color:black;;">You're 18 or older</span>
+                        </label>
+                    </p>
+                </form>
+            </div>
+            <div class="grid-example col  s4"></div>
+        </div>
+        <div class="row">
+                <h2>Add a drink</h2>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input value="" id="cat_name" type="text" value={{category.category}}>
+                            <label class="active" for="cat_name"><span
+                                    style="font-weight: bold;color:dark-grey;">Category</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input value="" id="drink_name" type="text" value={{cocktail.drink}}>
+                            <label class="active" for="drink_name"><span
+                                    style="font-weight: bold;color:dark-grey;">Cocktail</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input value="" id="drinkimage_name" type="text" value={{image.image}}>
+                            <label class="active" for="drinkimage_name"><span
+                                    style="font-weight: bold;color:dark-grey;">Cocktail's Image</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"
+                                value={{ingredients.ingredients}}></textarea>
+                            <label for="textarea1"><span
+                                    style="font-weight: bold;color:dark-grey;">Ingredients</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea2" class="materialize-textarea" value={{method.method}}></textarea>
+                            <label for="textarea2"><span
+                                    style="font-weight: bold;color:dark-grey;">Method</span></label>
+                        </div>
+                    </div>
+                    <button class="waves-effect waves-light btn-blue-grey lighten-4" type="submit" name="submit">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
