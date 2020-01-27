@@ -33,9 +33,7 @@ require("./router/routes/routes.js")(app);
 
 // Index routes
 app.get("/index", (req,res) => res.render("index",({ defaultLayout: "main" })));
-// app.get("/", (req,res) => res.render("results",({ defaultLayout: "main" })));
 app.get("/add", (req,res) => res.render("add",({ defaultLayout: "main" })));
-// app.get("/drink", (req,res) => res.render("drink",({ defaultLayout: "main" })));
 
 app.listen(PORT, function () {
     console.log(`App listening on PORT ${PORT}`);
