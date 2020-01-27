@@ -7,7 +7,7 @@ const path = require("path");
 
 
 // Database
-db = require('./config/config.js')
+// db = require('./config/config.js')
 
 // Sets up the Express App
 // =============================================================
@@ -24,21 +24,19 @@ app.set("view engine", "handlebars");
 
 
 //Set static folder
-app.use(express.static(path.join(__dirname,"/public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Routes
 // =============================================================
 require("./router/routes/routes.js")(app);
 
 
-//Index route
+// Index routes
 app.get("/index", (req,res) => res.render("index",({ defaultLayout: "main" })));
-app.get("/", (req,res) => res.render("results",({ defaultLayout: "main" })));
-app.get("/results", (req,res) => res.render("results",({ defaultLayout: "main" })));
+// app.get("/", (req,res) => res.render("results",({ defaultLayout: "main" })));
+app.get("/add", (req,res) => res.render("add",({ defaultLayout: "main" })));
+// app.get("/drink", (req,res) => res.render("drink",({ defaultLayout: "main" })));
 
-
-db.sequelize.sync().then(() => {
-    app.listen(PORT, () => {
-        console.log('Express listening on port:', PORT);
-    });
+app.listen(PORT, function () {
+    console.log(`App listening on PORT ${PORT}`);
 });

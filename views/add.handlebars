@@ -19,8 +19,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="cat_name1" type="text">
-                    <label class="active" for="cat_name"><span
-                            style="font-weight: bold;color:black;">Category</label>
+                    <label class="active" for="cat_name"><span style="font-weight: bold;color:black;">Category</label>
                 </div>
             </div>
             <div class="row">
@@ -33,8 +32,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="drinkimage_name" type="text">
-                    <label class="active" for="drinkimage_name"><span
-                            style="font-weight: bold;color:black;">Cocktail's Image</span></label>
+                    <label class="active" for="drinkimage_name"><span style="font-weight: bold;color:black;">Cocktail's
+                            Image</span></label>
                 </div>
             </div>
             <div class="row">
@@ -61,43 +60,35 @@
 
 <script type="text/javascript">
 
+    // When user clicks add-btn
     $("#fm1").on("click", function (event) {
         event.preventDefault();
-        var category = $("#textarea1").val().trim()
-        $("#um1").text(category);
-        // make a newCharacter obj
-        {
-            {
-                !--{
-            {
-                    var newData = {
-                        category: $("#cat_name1").val().trim(),
-                        drink: $("#drink_name").val().trim(),
-                        images: $("#drinkimage_name").val().trim(),
-                        ingredients: $("#textarea1").val().trim(),
-                        method: $("#textarea2").val().trim()
-                    };
 
-                    // send an AJAX POST-request with jQuery
-                    $.post("/index", newData)
-                        // on success, run this callback
-                        .then(function (data) {
-                            // log the data we found
-                            console.log(data);
-                            // tell the user we're adding a character with an alert window
-                            alert("Adding character...");
-                        });
+        // Make a new Drink object
+        var newDrink = {
+            category: $("#cat_name1").val().trim(),
+            drink: $("#drinkimage_name").val().trim(),
+            image: $("#drinkimage_name").val().trim(),
+            ingredients: $("#textarea1").val().trim(),
+            method: $("#textarea2").val().trim()
+        };
+        console.log(newDrink);
+        // Send an AJAX POST-request with jQuery
+        $.post("/add", newDrink)
+            // On success, run the following code
+            .then(function (data) {
+                // Log the data we found
+                console.log(data);
+            });
 
-                    // empty each input box by replacing the value with an empty string
-                    $("#cat_name").val("")
-                    $("#drink_name").val("")
-                    $("#drinkimage_name").val("")
-                    $("#textarea1").val("")
-                    $("#textarea2").val("")--
-                }
-            } --}
-    }
+        // Empty each input box by replacing the value with an empty string
+            $("#cat_name1").val(""),
+            $("#drinkimage_name").val(""),
+            $("#drinkimage_name").val(""),
+            $("#textarea1").val(""),
+            $("#textarea2").val("")
 
     });
+
 
 </script>

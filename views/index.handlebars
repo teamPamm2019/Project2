@@ -19,11 +19,11 @@
         <div class="grid-example col  s5">
             <h2 style="font-family: cursive; text-align: center;">Cocktail List</h2>
             <ul>
-                {{#each cocktail}}
+                {{#each bar}}
                 <li>
                     <button class="btn-flat transparent btn1" id="{{this.dataValues.id}}">
                         <div class="chip">
-                                <img class="circle responsive-img" src="/images/CoffeeRecipe.png">
+                            <img class="circle responsive-img" src="{{this.dataValues.image}}">
                             {{this.dataValues.drink}}
                         </div>
                     </button>
@@ -35,8 +35,8 @@
         <div class="grid-example col  s5">
             <h2 style="font-family: cursive; text-align: center;">Results</h2>
             <div class="row">
-                <h4 style="font-family: cursive; text-align: center;">Cocktail's Sour:</h4>
-                <img class="circle responsive-img"  id="addImg">
+                <h4 style="font-family: cursive; text-align: center;" id="sDrink"></h4>
+                <img class="circle responsive-img" src="" id="addImg">
             </div>
             <div class="row">
                 <h5 style="font-family: cursive">Ingredients:</h5>
@@ -47,7 +47,7 @@
             <div class="row">
                 <h5 style="font-family: cursive">method:</h5>
                 <div class="card-panel">
-                    <p id="addMeth"></p>
+                    <p id="addMeth">{{method}}</p>
                 </div>
             </div>
         </div>
@@ -60,13 +60,20 @@
 
 <script type="text/javascript">
 
-    $(".btn1").on("click", function () {
-        var id1 = $(this).attr("id");
-        alert(id1);
-        $("#addImg").attr("src", "/images/Manhattan.png")
-        $("#addIngred").text("whiskey, soda , lemon , and ice");
-        $("#addMeth").text("mix, and shake well");
+    $(".btn1").on("click", function (event) {
+        
+        event.preventDefault();
 
+        var id = $(this).attr("id");
+
+        console.log(id);
+        $.get("/index", function (data) {
+
+            $("#sDrink").text(data.drink);
+            $("#addImg").text(data.image);
+            $("#addIngred").text(data.ingredients);
+            $("#addMeth").text(data.method);
+        });
     });
 
 

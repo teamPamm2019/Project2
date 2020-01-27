@@ -1,42 +1,58 @@
-const express = require("express");
-const db = require("../../config/config.js");
-const Sequelize = require("sequelize");
+// const express = require("express");
+const Bar = require("../../models/bar.js");
+// const Sequelize = require("sequelize");
 
 
 
 module.exports = (app) => {
 
-  //Get gig list
   app.get("/index", (req, res) => {
-    console.log(db);
-    db.cocktail.findAll({
-      //  where: {drinkcategories_id: 2},
+    console.log(Bar);
+    Bar.findAll({
     })
-      .then(cocktail => {
-        console.log(cocktail);
-        res.render("index", { cocktail: cocktail });
+      .then(bar => {
+        console.log(bar);
+        res.render("index", { bar: bar });
       })
       .catch(err => console.log(err))
   });
 
-  app.post("/results", function (req, res) {
-    // Take the request...
-    var bar = req.body;
+  app.get("/index", (req, res) => {
+    // console.log(db);
+    Bar.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(bar => {
+        let resultdrink = bar.drink
+        let resultimage = bar.image
+        let resultingredient= bar.ingredients
+        let resultmethod= bar.method
 
 
-    var routeName = bar.name.replace(/\s+/g, "").toLowerCase();
+        // res.json(cocktail)
+        res.render("index", {drink:resultdrink ,image:resultimage , ingredients: resultingredient, method: resultmethod});
 
-    // Then add the character to the database using sequelize
+      })
+      .catch(err => console.log(err))
+  });
+
+
+    // var routeName = bar.name.replace(/\s+/g, "").toLowerCase();
+
+  // Add a drink
+  app.post("/add", function(req, res) {
+    console.log(req.body);
     Bar.create({
-      routeName: routeName,
-      category: bar.category,
-      drink: drink.role,
-      images: bar.images,
-      ingredients: bar.ingredients,
-      method:bar.method
+      category: req.body.category,
+      drink: req.body.drink,
+      images: req.body.image,
+      ingredients: req.body.ingredients,
+      method: req.body.method,
+    }).then(function(results) {
+      res.end();
     });
-
-    res.status(204).end();
   });
 };
 
