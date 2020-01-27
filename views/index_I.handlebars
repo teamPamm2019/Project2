@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card transparent"
+            style="background-image: url('https://as1.ftcdn.net/jpg/02/29/35/48/500_F_229354874_JGNkLO3K9ElnPfEgij3OhXz7mz4093UJ.jpg');">
+            <div class="card-content white-text">
+                <span class="card-title">
+                    <h1 style="text-align: center;color:black">VIRTUAL EASYSPEAK BAR</h1>
+                </span>
+                <p>
+                    <h5 style="text-align: center;color:black">Please select a drink from the menu<br>Or you can add
+                        your own custom
+                        drink to the menu</h5>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="grid-example col  s4"></div>
+        <div class="grid-example col  s4">
+        </div>
+        <div class="grid-example col  s4"></div>
+    </div>
+    <div class="row">
+        <div class="grid-example col  s5">
+            <h2>Cocktail List</h2>
+            <ul>
+                {{#each cocktail}}
+                <li>
+                    <button class="btn-flat transparent  btn1" id="{{this.dataValues.id}}">
+                        <div class="chip">
+                           {{this.dataValues.drink}}
+                        </div>
+                    </button>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="grid-example col  s2"></div>
+        <div class="grid-example col  s5">
+            <h2>Results</h2>
+            <div class="row">
+                <h4 id="addDrink"></h4>
+                </br>
+                <img class="circle responsive-img" src="" id="addImg">
+            </div>
+            </br>
+            <div class="row">
+                <h5>Ingredients:</h5>
+                <div class="card-panel">
+                    <p id="addIngred"></p>
+                </div>
+            </div>
+            <div class="row">
+                <h5>method:</h5>
+                <div class="card-panel">
+                    <p id="addMeth"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(".btn1").on("click", function () {
+        var id1 = $(this).attr("id");
+        alert(id1);
+        $("#addImg").attr("src","../db/images/Manhattan.png")
+        $("#addIngred").text("whiskey, soda , lemon , and ice");
+        $("#addMeth").text("mix, and shake well");
+
+        {{!-- // $.get("/index", (data) => {
+        //     alert("we have activated userdisplay.js\n");
+        //     db.query("SELECT images FROM imagesdrinks INNER JOIN cocktails ON imagesdrinks.cocktails_id = cocktails.id WHERE imagesdrinks.id= 1;", (error, data) => {
+        //         console.log('we did a query');
+        //         if (error) {
+        //             console.log("Error: ", error);
+        //             res.send({
+        //                 "code": 400,
+        //                 "failed": "Error occurred"
+        //             });
+        //         } else {
+        //             console.log("Results: ", data);
+        //             res.render('/index', { data: data });
+        //         }
+        //     });
+        // }); --}}
+    });
+
+
+
+</script>

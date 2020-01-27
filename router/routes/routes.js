@@ -1,29 +1,16 @@
 const express = require("express");
-// const router = express.Router();
 const db = require("../../config/config.js");
 const Sequelize = require("sequelize");
 
-// module.exports = (app, db) => {
 
-//   //Get gig list
-//   app.get("/", (req, res) => {
-//     console.log(db);
-//     db.cocktail.findAll({
-//     })
-//       .then(cocktail => {
-//         console.log(cocktail);
-//         res.render("index", { cocktail: cocktail });
-//       })
-//       .catch(err => console.log(err))
-//   });
-// };
 
-module.exports = (app, db) => {
+module.exports = (app) => {
 
   //Get gig list
   app.get("/index", (req, res) => {
     console.log(db);
     db.cocktail.findAll({
+      //  where: {drinkcategories_id: 2},
     })
       .then(cocktail => {
         console.log(cocktail);
@@ -32,23 +19,27 @@ module.exports = (app, db) => {
       .catch(err => console.log(err))
   });
 
-    // Add a new data into the database
-    // app.post("/index", function(req, res) {
+  app.post("/results", function (req, res) {
+    // Take the request...
+    var bar = req.body;
 
-    //   console.log("Chirp Data:");
-    //   console.log(req.body);
-  
-    //   Chirp.create({
-    //     author: req.body.author,
-    //     body: req.body.body,
-    //     created_at: req.body.created_at
-    //   }).then(function(results) {
-    //     // `results` here would be the newly created chirp
-    //     res.end();
-    //   });
-  
-    // });
+
+    var routeName = bar.name.replace(/\s+/g, "").toLowerCase();
+
+    // Then add the character to the database using sequelize
+    Bar.create({
+      routeName: routeName,
+      category: bar.category,
+      drink: drink.role,
+      images: bar.images,
+      ingredients: bar.ingredients,
+      method:bar.method
+    });
+
+    res.status(204).end();
+  });
 };
+
 
 
 

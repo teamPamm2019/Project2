@@ -1,24 +1,14 @@
-<div class="row">
-    <div class="col s12">
-        <div class="card transparent"
-            style="background-image: url('https://as1.ftcdn.net/jpg/02/29/35/48/500_F_229354874_JGNkLO3K9ElnPfEgij3OhXz7mz4093UJ.jpg');">
-            <div class="card-content white-text">
-                <span class="card-title">
-                    <h1 style="text-align: center;color:black">VIRTUAL EASYSPEAK BAR</h1>
-                </span>
-                <p>
-                    <h5 style="text-align: center;color:black">Please select a drink from the menu<br>Or you can add
-                        your own custom
-                        drink to the menu</h5>
-                </p>
-            </div>
-        </div>
+<div class="container">
+    <br>
+    <div style="text-align: center;" id="indexImage">
+        <img src="https://images.squarespace-cdn.com/content/v1/5546e0cde4b099a7d92c263b/1518226240007-I9YX1CHVM932QT95BUXB/ke17ZwdGBToddI8pDm48kGPVK--wGoWXJsqwlxbZlQN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5enfxu_O4VeONvneR-F6W8oeFhFqSrYyNrfPB9Y70_gvQ/Blues+Central+-+Williwaw+-+2015+DSC_0470.jpg?format=1500w"
+            class="responsive-img" alt="" width="700" height="700"
+            style="border-style: solid; border-color: burlywood; border-width: thick;">
     </div>
+    <br>
 </div>
 
-
-
-<div class="container">
+<div class="container" style="border-style: solid; border-color: burlywood; background-color:antiquewhite;">
     <div class="row">
         <div class="grid-example col  s4"></div>
         <div class="grid-example col  s4">
@@ -27,12 +17,13 @@
     </div>
     <div class="row">
         <div class="grid-example col  s5">
-            <h2>Cocktail List</h2>
+            <h2 style="font-family: cursive; text-align: center;">Cocktail List</h2>
             <ul>
                 {{#each cocktail}}
                 <li>
                     <button class="btn-flat transparent btn1" id="{{this.dataValues.id}}">
                         <div class="chip">
+                                <img class="circle responsive-img" src="/images/CoffeeRecipe.png">
                             {{this.dataValues.drink}}
                         </div>
                     </button>
@@ -40,55 +31,43 @@
                 {{/each}}
             </ul>
         </div>
-        <div class="grid-example col  s2"></div>
+        <div class="grid-example col  s1"></div>
         <div class="grid-example col  s5">
-            <h2>Results</h2>
+            <h2 style="font-family: cursive; text-align: center;">Results</h2>
             <div class="row">
-                <h4>Cocktail's Sour:</h4>
-                </br>
-                <img class="circle responsive-img" src="" id="addImg">
+                <h4 style="font-family: cursive; text-align: center;">Cocktail's Sour:</h4>
+                <img class="circle responsive-img"  id="addImg">
             </div>
-            </br>
             <div class="row">
-                <h5>Ingredients:</h5>
+                <h5 style="font-family: cursive">Ingredients:</h5>
                 <div class="card-panel">
                     <p id="addIngred"></p>
                 </div>
             </div>
             <div class="row">
-                <h5>method:</h5>
+                <h5 style="font-family: cursive">method:</h5>
                 <div class="card-panel">
                     <p id="addMeth"></p>
                 </div>
             </div>
-
         </div>
+        <div class="grid-example col  s1"></div>
     </div>
+
 </div>
+
+
 
 <script type="text/javascript">
 
     $(".btn1").on("click", function () {
         var id1 = $(this).attr("id");
         alert(id1);
-        exports.list = (req, res) => {
-            alert("we have activated userdisplay.js\n");
-            db.query("SELECT images FROM imagesdrinks INNER JOIN cocktails ON imagesdrinks.cocktails_id = cocktails.id WHERE imagesdrinks.id= 1", (error, results) => {
-                console.log('we did a query');
-                if (error) {
-                    console.log("Error: ", error);
-                    res.send({
-                        "code": 400,
-                        "failed": "Error occurred"
-                    });
-                } else {
-                    console.log("Results: ", results);
-                    res.render('/index', { data: results });
-                }
-            });
-        }
-    });
+        $("#addImg").attr("src", "/images/Manhattan.png")
+        $("#addIngred").text("whiskey, soda , lemon , and ice");
+        $("#addMeth").text("mix, and shake well");
 
+    });
 
 
 
