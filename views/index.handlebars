@@ -8,6 +8,17 @@
     <br>
 </div>
 
+<div class="row">
+    <div class="grid-example col  s5"></div>
+    <div class="grid-example col  s4">
+        <p id="ageCheck" style="font-family: cursive; color:white;font-size:x-large">Are you 21 or over?</p>
+        <a href="/index" class="waves-effect waves-light btn">Yes</a>
+        <a href="https://www.bbcgoodfood.com/recipes/collection/non-alcoholic-cocktail"
+            class="waves-effect waves-light btn" id="yesBtn">No</a>
+    </div>
+    <div class="grid-example col  s3"></div>
+</div>
+
 
 <div class="container" style="border-style: solid; border-color: burlywood; background-color:antiquewhite;">
     <div class="row">
@@ -23,40 +34,22 @@
             <ul>
                 {{#each bar}}
                 <li>
-                    <button class="btn-flat transparent btn1"><a href="/results/{{this.dataValues.id}}" >
-                        <div class="chip">
-                            <img class="circle responsive-img" src="{{this.dataValues.image}}">
-                            {{this.dataValues.drink}}
-                        </div>
-                    </a></button>
+                    <button class="btn-flat transparent btn1"><a href="/results/{{this.dataValues.id}}">
+                            <div class="chip">
+                                <img class="circle responsive-img" src="{{this.dataValues.image}}">
+                                {{this.dataValues.drink}}
+                            </div>
+                        </a></button>
                 </li>
                 {{/each}}
             </ul>
         </div>
         <div class="grid-example col  s1"></div>
-        
+
     </div>
 
 </div>
 
 
 
-<script type="text/javascript">
-
-    {{!-- $(".btn1").on("click", function () {
-
-        var id1 = $(this).attr("id");
-        console.log(id1);
-
-        $.get("/api/" + id1, function (data) {
-
-            $("#sDrink").text(data.drink);
-            $("#addImg").text(data.image);
-            $("#addIngred").text(data.ingredients);
-            $("#addMeth").text(data.method);
-        });
-    }); --}}
-
-
-
-</script>
+<script type="text/javascript"></script>
