@@ -1,11 +1,29 @@
-// const express = require("express");
-const Bar = require("../../models/bar.js");
-// const Sequelize = require("sequelize");
 
+// Requiring our models
+  // =============================================================
+const Bar = require("../../models/bar.js");
 
 
 module.exports = (app) => {
 
+  // Find cocktails  by category (eg. whiskey, tequila, vodka or rum)
+  // =============================================================
+  app.get("/index/:category", (req, res) => {
+    console.log(Bar);
+    Bar.findAll({
+      where: {
+        category: req.params.category.toLowerCase()
+      }
+    })
+      .then(bar => {
+        console.log(bar);
+        res.render("index", { bar: bar });
+      })
+      .catch(err => console.log(err))
+  });
+
+  // Find all cocktails 
+  // =============================================================
   app.get("/index", (req, res) => {
     console.log(Bar);
     Bar.findAll({
@@ -17,8 +35,10 @@ module.exports = (app) => {
       .catch(err => console.log(err))
   });
 
+  // Find one cocktail with the id in req.params.id 
+  // =============================================================
   app.get("/results/:id", (req, res) => {
-    // console.log(db);
+
     Bar.findOne({
       where: {
         id: req.params.id
@@ -36,8 +56,8 @@ module.exports = (app) => {
 
 
 
-  // Add a drink
-
+  // Create an cocktail with the data available to us in req.body
+  // =============================================================
   app.post("/add", function(req, res) {
     console.log(req.body);
     Bar.create({
