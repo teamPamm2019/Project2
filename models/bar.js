@@ -20,7 +20,7 @@ const sequelize = require("../config/config.js");
             type: Sequelize.STRING
         },
         image: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         ingredients: {
             type: Sequelize.TEXT

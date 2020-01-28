@@ -5,7 +5,7 @@ $("#fm1").on("click", function (event) {
     // Make a new Drink object
     var newDrink = {
         category: $("#cat_name1").val().trim().toLowerCase(),
-        drink: $("#drinkimage_name").val().trim().toLowerCase(),
+        drink: $("#drink_name").val().trim().toLowerCase(),
         image: $("#drinkimage_name").val().trim(),
         ingredients: $("#textarea1").val().trim().toLowerCase(),
         method: $("#textarea2").val().trim()
@@ -21,7 +21,7 @@ $("#fm1").on("click", function (event) {
 
     // Empty each input box by replacing the value with an empty string
     $("#cat_name1").val(""),
-        $("#drinkimage_name").val(""),
+        $("#drink_name").val(""),
         $("#drinkimage_name").val(""),
         $("#textarea1").val(""),
         $("#textarea2").val("")
