@@ -17,7 +17,7 @@ module.exports = (app) => {
       .catch(err => console.log(err))
   });
 
-  app.get("/index", (req, res) => {
+  app.get("/results/:id", (req, res) => {
     // console.log(db);
     Bar.findOne({
       where: {
@@ -29,19 +29,15 @@ module.exports = (app) => {
         let resultimage = bar.image
         let resultingredient= bar.ingredients
         let resultmethod= bar.method
-
-
-        // res.json(cocktail)
-        res.render("index", {drink:resultdrink ,image:resultimage , ingredients: resultingredient, method: resultmethod});
-
+        res.render("results", {drink:resultdrink ,image:resultimage , ingredients: resultingredient, method: resultmethod});
       })
       .catch(err => console.log(err))
   });
 
 
-    // var routeName = bar.name.replace(/\s+/g, "").toLowerCase();
 
   // Add a drink
+
   app.post("/add", function(req, res) {
     console.log(req.body);
     Bar.create({

@@ -19,22 +19,25 @@
     <div class="row">
         <div class="grid-example col  s1"></div>
         <div class="grid-example col  s10">
-            <h2 style="font-family: cursive; text-align: center;">Cocktail List</h2>
-            <ul>
-                {{#each bar}}
-                <li>
-                    <button class="btn-flat transparent btn1"><a href="/results/{{this.dataValues.id}}" >
-                        <div class="chip">
-                            <img class="circle responsive-img" src="{{this.dataValues.image}}">
-                            {{this.dataValues.drink}}
-                        </div>
-                    </a></button>
-                </li>
-                {{/each}}
-            </ul>
+            <h2 style="font-family: cursive; text-align: center;">Results</h2>
+            <div class="row">
+                <h4 style="font-family: cursive; text-align: center;" id="sDrink">{{drink}}</h4>
+                <img class="circle responsive-img" src="{{image}}" id="addImg">
+            </div>
+            <div class="row">
+                <h5 style="font-family: cursive">Ingredients:</h5>
+                <div class="card-panel">
+                    <p id="addIngred">{{ingredients}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <h5 style="font-family: cursive">method:</h5>
+                <div class="card-panel">
+                    <p id="addMeth">{{method}}</p>
+                </div>
+            </div>
         </div>
         <div class="grid-example col  s1"></div>
-        
     </div>
 
 </div>
@@ -42,21 +45,6 @@
 
 
 <script type="text/javascript">
-
-    {{!-- $(".btn1").on("click", function () {
-
-        var id1 = $(this).attr("id");
-        console.log(id1);
-
-        $.get("/api/" + id1, function (data) {
-
-            $("#sDrink").text(data.drink);
-            $("#addImg").text(data.image);
-            $("#addIngred").text(data.ingredients);
-            $("#addMeth").text(data.method);
-        });
-    }); --}}
-
 
 
 </script>
