@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS VirtualBar;
+
+CREATE DATABASE VirtualBar;

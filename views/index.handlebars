@@ -1,43 +1,46 @@
-<div class="navbar-fixed active">
-    <nav class="brown accent-4">
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo center" style="font-family: cursive;">The SPEAKEASY</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html" style="font-family: cursive">The Hooch</a></li>
-                <li><a href="badges.html" style="font-family: cursive">The Bootleggers</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
 
 <div class="container">
-<br>
+    <br>
     <div style="text-align: center;" id="indexImage">
-        <img src="http://thelasocialites.com/wp-content/uploads/2015/06/IMG_1920_1_2.jpg" alt=""
-            class="responsive-img" alt="" width="600" height="600" style="border-style: solid; border-color: burlywood; border-width: thick;">
-    </div>
-
-    <div style="text-align: center;">
-        <div style="color: black; font-size: 28px; font-family: cursive;">Pick Your Poison!</div>
-        <button class="button" id="vodkaBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://p7.hiclipart.com/preview/146/365/173/cocktail-garnish-vodka-martini-cocktail-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black;"><br>Vodka
-        </button>
-
-        <button class="button" id="tequilaBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://i7.pngguru.com/preview/256/741/256/cocktail-garnish-margarita-daiquiri-martini-cocktail-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black"><br>Tequila
-        </button>
-
-        <button class="button" id="whiskeyBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://i7.pngguru.com/preview/194/66/425/whiskey-sour-cocktail-harvey-wallbanger-juice-cocktail-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black"><br>Whiskey
-        </button>
-
-        <button class="button" id="rumBtn" style="border-style: solid; background-color: burlywood; border-color: black; color: black; font-size: 25px;">
-            <img src="https://p7.hiclipart.com/preview/377/748/837/cocktail-gin-tequila-sunrise-sour-sea-breeze-cocktails-thumbnail.jpg"
-                width="100" height="100" style="border-style: solid; border-color: black;"><br>Rum
-        </button>
+        <img src="https://images.squarespace-cdn.com/content/v1/5546e0cde4b099a7d92c263b/1518226240007-I9YX1CHVM932QT95BUXB/ke17ZwdGBToddI8pDm48kGPVK--wGoWXJsqwlxbZlQN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5enfxu_O4VeONvneR-F6W8oeFhFqSrYyNrfPB9Y70_gvQ/Blues+Central+-+Williwaw+-+2015+DSC_0470.jpg?format=1500w"
+            class="responsive-img" alt="" width="700" height="700"
+            style="border-style: solid; border-color: burlywood; border-width: thick;">
     </div>
     <br>
 </div>
+
+
+
+<div class="container" style="border-style: solid; border-color: burlywood; background-color:antiquewhite;">
+    <div class="row">
+        <div class="grid-example col  s4"></div>
+        <div class="grid-example col  s4">
+        </div>
+        <div class="grid-example col  s4"></div>
+    </div>
+    <div class="row">
+        <div class="grid-example col  s1"></div>
+        <div class="grid-example col  s10">
+            <h2 style="font-family: cursive; text-align: center;">Cocktail List</h2>
+            <ul>
+                {{#each bar}}
+                <li>
+                    <button class="btn-flat transparent btn1"><a href="/results/{{this.dataValues.id}}">
+                            <div class="chip">
+                                <img class="circle responsive-img" src="{{this.dataValues.image}}">
+                                {{this.dataValues.drink}}
+                            </div>
+                        </a></button>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="grid-example col  s1"></div>
+
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript"></script>

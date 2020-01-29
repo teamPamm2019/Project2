@@ -1,6 +1,23 @@
-// Set up mysql connection.
+// Dependencies
 const Sequelize = require("sequelize");
 
+
+// Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+const sequelize = new Sequelize("VirtualBar", "root", "Toronbolo777", {
+  host: "localhost",
+  port: 3306,
+  dialect: "mysql",
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+});
+
+// Exports the connection for other files to use
+module.exports = sequelize;
+
+=======
 const sequelize = new Sequelize("SpeakEZ",
   "root",
   "password",
@@ -47,3 +64,4 @@ db.cocktail.belongsTo(db.category);
 db.category.hasMany(db.cocktail);
 
 module.exports = db;
+
