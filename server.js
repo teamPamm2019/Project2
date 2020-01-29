@@ -1,52 +1,36 @@
-// *****************************************************************************
-// Server.js - This file is the initial starting point for the Node/Express server.
-//
-// ******************************************************************************
-
-
-// Dependencies
-// =============================================================
 const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const path = require("path");
 
+const Sequelize = require("sequelize");
 
-// Sets up the Express App
-// =============================================================
-var app = express();
-var PORT = process.env.PORT || 5000;
+// // Database
+db = require('./config/config.js')
 
 
-// Sets up the Express app to handle data parsing
-// =============================================================
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// Test DB
+// db.authenticate()
+//     .then(() => console.log("Database connected...."))
+//     .catch(err => console.log("Error: " + err))
 
+const app = express();
 
 //Handlebars
-// =============================================================
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+//Body Parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 //Set static folder
-// =============================================================
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname,"public")));
 
-// Routes
-require("./router/routes/routes.js")(app);
-
-
-// Index routes
-// =============================================================
-app.get("/index", (req,res) => res.render("index",({ defaultLayout: "main" })));
-app.get("/add", (req,res) => res.render("add",({ defaultLayout: "main" })));
-app.get("/", (req,res) => res.render("home",({ defaultLayout: "main" })));
+//Index route
+app.get("/", (req,res) => res.render("index"));
 
 
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function () {
-    console.log(`App listening on PORT ${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`server started on port ${PORT}`));
